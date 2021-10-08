@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script src="basic.js"></script>
+
+    <title>개인프로젝트 게시판</title>
+
+
+    <script>
+        $(document).ready(function () {
+            // HTML 문서를 로드할 때마다 실행합니다.
+            readBoard();
+        })
+
+    </script>
+</head>
+
+<body>
+<div class="jumbotron">
+    <h1 class="display-4">게시판</h1>
+    <p class="lead">이곳은 게시판 글을 작성하는 곳입니다!</p>
+    <hr class="my-4">
+    <p>글을 쓰신 후 아이디를 클릭하면 상세페이지로 넘어갑니다</p>
+    <p>상세페이지에서 새로고침을 누르면 전체목록 조회로 넘어갑니다</p>
+    <p>댓글 작성, 수정, 조회는 작성 후 새로고침 후 적용됩니다</p>
+<!--    <span th:text="${username}"></span>님 환영합니다.-->
+</div>
+<p>
+<a id="login-text" href="/user/login">
+    로그인
+</a>
+</p>
+<p>
+<a id="signup-text" href="/user/signup">
+    회원가입
+</a>
+</p>
+<div class="showList">
+    <table class="table" id="table" text-align="center">
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td onclick="location.href='detail.html';"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody>
+        <button class="btn btn-primary" type="button" onclick="location.href='write.html'">글쓰기</button>
+    </table>
+</div>
+
+<div class="readDetail">
+    <table class="table">
+        <thead class="table-dark">
+        <tr id="topMenu" style="display:none">
+            <th scope="col">작성자</th>
+            <th scope="col">제목</th>
+            <th scope="col">내용</th>
+            <th scope="col">작성시간</th>
+
+        </tr>
+        </thead>
+        <tr class="table" id="read">
+            <td id="detailUsername"></td>
+            <td id="detailTitle"></td>
+            <td id="detailContents"></td>
+            <td id="detailTime"></td>
+        </tr>
+    </table>
+</div>
+<div class="area-write" id="commentinput">
+
+</div>
+<div id = "commentlist">
+
+</div>
+</body>
+
+</html>
